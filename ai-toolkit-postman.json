@@ -1,0 +1,73 @@
+{
+    "info": {
+        "name": "AI Developer Toolkit",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Test API",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8090/api/docs/test",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "8090",
+                    "path": ["api", "docs", "test"]
+                }
+            }
+        },
+        {
+            "name": "Debug Config",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8090/api/docs/debug/config",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "8090",
+                    "path": ["api", "docs", "debug", "config"]
+                }
+            }
+        },
+        {
+            "name": "Generate AI Documentation",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"projectName\": \"test-project\",\n    \"apiEndpoint\": \"/api/users\",\n    \"sourceCode\": \"@GetMapping(\\\"/users\\\")\\npublic ResponseEntity<List<User>> getAllUsers() {\\n    List<User> users = userService.findAll();\\n    return ResponseEntity.ok(users);\\n}\\n\\n@PostMapping(\\\"/users\\\")\\npublic ResponseEntity<User> createUser(@RequestBody User user) {\\n    User savedUser = userService.save(user);\\n    return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);\\n}\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8090/api/docs/generate",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "8090",
+                    "path": ["api", "docs", "generate"]
+                }
+            }
+        },
+        {
+            "name": "Get All Documentation",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8090/api/docs/all",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "8090",
+                    "path": ["api", "docs", "all"]
+                }
+            }
+        }
+    ]
+}
