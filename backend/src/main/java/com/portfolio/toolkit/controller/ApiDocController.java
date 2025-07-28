@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.portfolio.toolkit.entity.ApiDocumentation;
+import com.portfolio.toolkit.models.GenerateDocRequest;
 import com.portfolio.toolkit.service.ApiDocumentationService;
 
 @RestController
@@ -88,37 +89,5 @@ public class ApiDocController {
                 "openaiKeyLength", openaiApiKey.length(),
                 "anthropicKeyLength", anthropicApiKey.length(),
                 "openaiKeyStart", openaiApiKey.substring(0, Math.min(10, openaiApiKey.length())));
-    }
-
-    // DTO class for request body
-    public static class GenerateDocRequest {
-        private String projectName;
-        private String apiEndpoint;
-        private String sourceCode;
-
-        // Getters and setters
-        public String getProjectName() {
-            return projectName;
-        }
-
-        public void setProjectName(String projectName) {
-            this.projectName = projectName;
-        }
-
-        public String getApiEndpoint() {
-            return apiEndpoint;
-        }
-
-        public void setApiEndpoint(String apiEndpoint) {
-            this.apiEndpoint = apiEndpoint;
-        }
-
-        public String getSourceCode() {
-            return sourceCode;
-        }
-
-        public void setSourceCode(String sourceCode) {
-            this.sourceCode = sourceCode;
-        }
     }
 }

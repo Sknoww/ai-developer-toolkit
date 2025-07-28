@@ -2,6 +2,11 @@
 
 import CopyButton from '@/components/copyButton';
 import {
+    apiEndpointPlaceholder,
+    projectNamePlaceholder,
+    sourceCodePlaceholder,
+} from '@/constants/placeholderConstants';
+import {
     apiService,
     type ApiDocumentation,
     type GenerateDocRequest,
@@ -123,7 +128,7 @@ export default function Home() {
                                         )
                                     }
                                     className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 bg-white placeholder-gray-400'
-                                    placeholder='my-awesome-api'
+                                    placeholder={projectNamePlaceholder}
                                     required
                                 />
                             </div>
@@ -146,7 +151,7 @@ export default function Home() {
                                         )
                                     }
                                     className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 bg-white placeholder-gray-400'
-                                    placeholder='/api/users'
+                                    placeholder={apiEndpointPlaceholder}
                                     required
                                 />
                             </div>
@@ -169,17 +174,7 @@ export default function Home() {
                                     }
                                     rows={12}
                                     className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent font-mono text-sm text-gray-900 bg-white placeholder-gray-400'
-                                    placeholder={`@GetMapping("/users")
-public ResponseEntity<List<User>> getAllUsers() {
-    List<User> users = userService.findAll();
-    return ResponseEntity.ok(users);
-}
-
-@PostMapping("/users")
-public ResponseEntity<User> createUser(@RequestBody User user) {
-    User savedUser = userService.save(user);
-    return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
-}`}
+                                    placeholder={sourceCodePlaceholder}
                                     required
                                 />
                             </div>

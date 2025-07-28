@@ -31,6 +31,7 @@ public class AiDocumentationService {
         this.objectMapper = new ObjectMapper();
     }
 
+    // Mocked response for development purposes without AI services configured
     private String generateMockDocumentation(String sourceCode, String apiEndpoint) {
         return String.format(
                 """
@@ -176,25 +177,6 @@ public class AiDocumentationService {
                 6. Usage examples with curl commands
 
                 Format as clean, professional API documentation.
-                """, apiEndpoint, sourceCode);
-    }
-
-    private String generateFallbackDocumentation(String sourceCode, String apiEndpoint) {
-        return String.format("""
-                # API Documentation
-
-                **Endpoint:** %s
-
-                **Source Code Analysis:**
-                ```java
-                %s
-                ```
-
-                *Note: AI-generated documentation is currently unavailable. Please check your API keys and try again.*
-
-                **Basic Information:**
-                - This endpoint was analyzed from the provided source code
-                - For complete documentation, ensure AI services are properly configured
                 """, apiEndpoint, sourceCode);
     }
 }

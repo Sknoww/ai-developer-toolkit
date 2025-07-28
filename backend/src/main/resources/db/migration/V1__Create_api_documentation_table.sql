@@ -9,11 +9,9 @@ CREATE TABLE api_documentation (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create indexes for better query performance
 CREATE INDEX idx_api_doc_project ON api_documentation(project_name);
 CREATE UNIQUE INDEX idx_api_doc_project_endpoint ON api_documentation(project_name, api_endpoint);
 
--- Add comments for documentation
 COMMENT ON TABLE api_documentation IS 'Stores AI-generated API documentation for different projects';
 COMMENT ON COLUMN api_documentation.project_name IS 'Name of the project being documented';
 COMMENT ON COLUMN api_documentation.api_endpoint IS 'The API endpoint path being documented';
