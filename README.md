@@ -78,7 +78,7 @@ This application showcases enterprise-level full-stack development skills throug
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/ai-developer-toolkit.git
+   git clone https://github.com/Sknoww/ai-developer-toolkit.git
    cd ai-developer-toolkit
    ```
 
@@ -118,19 +118,16 @@ This application showcases enterprise-level full-stack development skills throug
 ## 📱 Application Walkthrough
 
 ### Documentation Generator
-![Generator Interface](docs/images/generator.png)
 - Input source code and project details
 - Real-time AI processing with loading indicators
 - Professional documentation output with copy functionality
 
 ### Documentation Library
-![Documentation Library](docs/images/library.png)
 - Browse all generated documentation
 - Search and filter capabilities
 - Detailed view with syntax highlighting
 
 ### Project Overview
-![Project Overview](docs/images/projects.png)
 - Project-level statistics and metrics
 - Organized documentation by project
 - Performance analytics and insights
