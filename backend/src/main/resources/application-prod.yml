@@ -1,0 +1,60 @@
+server:
+    port: 8090
+
+spring:
+    application:
+        name: ai-developer-toolkit
+
+    datasource:
+        url: jdbc:postgresql://${RDS_HOSTNAME:localhost}:${RDS_PORT:5432}/${RDS_DB_NAME:portfolio_dev}
+        username: ${RDS_USERNAME:dev_user}
+        password: ${RDS_PASSWORD:dev_password}
+        driver-class-name: org.postgresql.Driver
+        hikari:
+            maximum-pool-size: 20
+            minimum-idle: 5
+            connection-timeout: 30000
+
+    jpa:
+        hibernate:
+            ddl-auto: validate
+        show-sql: false
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQLDialect
+
+    flyway:
+        enabled: true
+        locations: classpath:db/migration
+        baseline-on-migrate: true
+        validate-on-migrate: true
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include: health,info,metrics
+    endpoint:
+        health:
+            show-details: when-authorized
+
+logging:
+    level:
+        com.portfolio.toolkit: INFO
+        org.springframework.web: INFO
+
+# AI Configuration
+ai:
+    openai:
+        api-key: ${OPENAI_API_KEY}
+        base-url: https://api.openai.com/v1
+        timeout: 30000
+    anthropic:
+        api-key: ${ANTHROPIC_API_KEY}
+        base-url: https://api.anthropic.com
+        timeout: 30000
+
+# CORS for production
+app:
+    cors:
+        allowed-origins: ${CORS_ORIGINS:https://your-domain.com}
