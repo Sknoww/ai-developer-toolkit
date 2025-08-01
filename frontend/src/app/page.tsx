@@ -288,6 +288,25 @@ export default function Home() {
                         </p>
                     </div>
                 </div>
+                <div className='flex flex-col items-center justify-center w-full mt-10'>
+                    <div className='text-center'>
+                        <p className='text-gray-500 text-sm'>
+                            Made by{' '}
+                            <a
+                                href='https://github.com/Sknoww'
+                                className='text-blue-600 hover:underline'
+                            >
+                                Hunter Sullivan
+                            </a>
+                        </p>
+                    </div>
+                    <div className='text-center'>
+                        <p className='text-gray-500 text-sm'>
+                            Currently AI functionality is disabled for cost
+                            purposes.
+                        </p>
+                    </div>
+                </div>
             </main>
         </div>
     );
